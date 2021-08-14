@@ -1,0 +1,58 @@
+@charset "UTF-8";
+div{
+    position: relative;
+    left: 30%;
+    width: 500px;
+    height: 500px;
+    background-color:#b9e109;
+    margin-top: 50px;
+
+
+}
+div div{
+    width: 200px;
+    height: 275px;
+    background-color: white;
+    position: relative;
+    left: 150px;
+    top: 100px;
+    text-align: center;
+    color: grey;
+    padding-top: 50px;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    box-shadow: 4px 3px 8px 3px #969696;
+
+
+}
+.myInput{
+
+    margin-top: 15px;
+    text-align: center;
+    background-color: #dee0d6;
+    height: 30px;
+    border: #dee0d6 0px;
+}
+.anotherInput{
+    margin-top: 15px;
+    text-align: center;
+    color: white;
+    background-color: #5fdcf3;
+    height: 30px;
+    width: 150px;
+    border: #dee0d6 0px;
+}
+a{
+    color: red;
+    text-decoration-line: none;
+}
+img{
+    height: 100px;
+    width: 100px;
+    position: absolute;
+    left: 50px;
+    bottom: 260px;
+    z-index: 1;
+    background-color: black;
+    box-shadow: 4px 3px 8px 3px #969696;
+
+}

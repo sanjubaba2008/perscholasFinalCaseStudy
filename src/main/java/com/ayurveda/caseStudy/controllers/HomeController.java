@@ -9,12 +9,17 @@ public class HomeController {
     @GetMapping({"/","index"})//when a client request a home page this method will be triggered
     //and returns index.html file. client can either request "/" or "index"
     public String showIndex(){
-
         return "index";
     }
     @GetMapping("/login")
     public String showLoginPage(){
         return "login";
+    }
+
+    @GetMapping("/register")
+    public String showRegistrationPage(){
+        return "registration";
+
     }
 
 

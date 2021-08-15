@@ -6,8 +6,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class LoginController {
 
-    @GetMapping("/login/newPassword")
+    @GetMapping("/login/password")
     public String getForgetPasswordPage(){
+
         return "newPassword";
     }
 

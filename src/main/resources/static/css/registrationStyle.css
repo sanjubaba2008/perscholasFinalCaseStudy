@@ -1,0 +1,20 @@
+.myContainer{
+    background-color: coral;
+    text-align: center;
+    height: 650px;
+    width: 500px;
+    position: relative;
+    left: 400px;
+    top: 50px;
+}
+h2{
+    font-family: 'Orbitron', sans-serif;
+    background-color: #f5baba;
+    height: 50px;
+
+}
+#exampleInputEmail1,#exampleInputPassword1,#exampleInputFirstName,#exampleInputLastName,#username{
+    width: 400px;
+    position: relative;
+    left: 50px;
+}

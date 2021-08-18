@@ -58,8 +58,14 @@
                     </li>
 
                 </div>
+                <div >
+                    <li class="nav-item"><a class="nav-link" th:href="@{/contact}">Contact Us</a></li>
+                </div>
                 <div sec:authorize="isAuthenticated()">
                     <li class="nav-item"><a class="nav-link" th:href="@{/logout}">Products</a></li>
+                </div>
+                <div sec:authorize="isAuthenticated()">
+                    <li class="nav-item"><a class="nav-link" th:href="@{/logout}">Logout</a></li>
                 </div>
             </ul>
         </div>

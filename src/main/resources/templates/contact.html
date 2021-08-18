@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.thymeleaf.org http://www.thymeleaf.org
+http://www.ultraq.net.nz/thymeleaf/layout https://www.ultraq.net.nz/thymeleaf/layout
+http://www.thymeleaf.org/thymeleaf-extras-springsecurity4 http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>
+        contact
+    </title>
+    <link th:href="@{css/contact.css}" rel="stylesheet" />
+</head>
+<body>
+<div class="contactForm">
+    <h2>Get in Touch</h2>
+    <div >
+        <input type="text" placeholder="your name please" class="nameField">
+    </div>
+    <div >
+        <input type="email" placeholder="A contact email" class="nameField">
+    </div>
+    <div >
+
+
+        <select name="contact" id="divField">
+            <option value="For a new project">For a new project</option>
+            <option value="sSuggestions">Suggestions</option>
+            <option value="Catch up for a coffee">Catch up for a coffee</option>
+            <option value="General">General</option>
+        </select>
+
+
+        <textarea id="w3review" name="w3review" rows="4" cols="35" class="nameField">
+                How can I help?
+
+            </textarea>
+        <br><br>
+        <input type="submit" value="Send Message" class="submitField">
+
+    </div>
+</div>
+
+</body>
+</html>

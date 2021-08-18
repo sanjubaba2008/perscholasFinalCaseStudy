@@ -1,0 +1,76 @@
+
+.myFont{
+    font-family: 'Tourney', cursive;
+    text-align: center;
+}
+.myButton{
+    position: relative;
+    top: 20px;
+    left: 0px;
+    background-color: #dbdbd9;
+
+
+
+
+}
+.btn{
+    margin: 60px;
+
+
+}
+.myBody{
+    background-color: #ffc7e3
+}
+.contactForm{
+    height: 465px;
+    width: 300px;
+    background-color: crimson;
+    position: relative;
+    left: 450px;
+    top: 50px;
+    box-shadow: 4px 3px 8px 3px #969696;
+}
+h2{
+    text-align: center;
+    margin: 5px;
+    padding: 5px;
+    font-family: 'Press Start 2P', cursive;
+}
+.nameField{
+    background-color: #adadad;
+    width: 280px;
+    margin: 10px;
+    font-family: 'Parisienne', cursive;
+
+}
+#divField{
+    background-color: #adadad;
+    height: 40px;
+    width:280px;
+    margin: 7px;
+    font-family: 'BenchNine', sans-serif;
+
+
+}
+.submitField{
+    background-color: white;
+    height: 40px;
+    width:280px;
+    margin: 7px;
+    box-shadow: 3px 3px 2px 1px black;
+    color: red;
+    font-family: 'BenchNine', sans-serif;
+}
+.videoContainer{
+    position: relative;
+    right: 400px;
+    bottom: 450px;
+
+}
+img{
+    width: 300px;
+    height:300px;
+    position: relative;
+    left: 320px;
+    bottom: 700px;
+}

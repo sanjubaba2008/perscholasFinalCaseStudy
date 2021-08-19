@@ -18,3 +18,6 @@ h2{
     position: relative;
     left: 50px;
 }
+p.red{
+    color: red;
+}

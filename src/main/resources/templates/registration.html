@@ -28,7 +28,50 @@ http://www.thymeleaf.org/thymeleaf-extras-springsecurity4 http://www.thymeleaf.o
 <body>
 <main class="myContainer">
     <h2>New User Register Here</h2>
+
+<form  th:action = "@{/register}" th:object = "${thecustomer}" method = "post">
+    <div class="mb-3">
+        <label for="exampleInputFirstName" class="form-label">First Name</label>
+        <input type="text" th:field = "*{firstName}" class="form-control" id="exampleInputFirstName" >
+        <p th:each="error : ${#fields.errors('firstName')}" th:text="${error}" th:style="'color: red;'">error</p>
+
+    </div>
+    <div class="mb-3">
+        <label for="exampleInputLastName" class="form-label">Last Name</label>
+        <input type="text" th:field = "*{lastName}" class="form-control" id="exampleInputLastName" >
+        <p th:each="error : ${#fields.errors('lastName')}" th:text="${error}" th:style="'color: red;'">error</p>
+
+    </div>
+    <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">Email address</label>
+        <input type="email" th:field = "*{email}"class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+        <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+        <p th:each="error : ${#fields.errors('email')}" th:text="${error}" th:style="'color: red;'">error</p>
+    </div>
+
+    <!--<div class="mb-3">
+    <label for="username" class="form-label">Username </label><br>
+    <input name="username" class="form-control" id="username" pattern="[A-Za-z0-9]+">
+    <div class="form-text"><i>(letters and numbers only, no punctuation or special characters)</i></div>
+
+
+    </div>-->
+
+    <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">Password</label>
+        <input type="password" th:field = "*{password}" class="form-control" id="exampleInputPassword1">
+        <p th:each="error : ${#fields.errors('password')}" th:text="${error}" th:style="'color: red;'">error</p>
+
+    </div>
+    <!--<div class="mb-3 form-check">-->
+    <!--  <input type="checkbox" class="form-check-input" id="exampleCheck1">-->
+    <!--  <label class="form-check-label" for="exampleCheck1">Check me out</label>-->
+    <!--</div>-->
+    <button type="submit" class="btn btn-primary">Submit</button>
+    <!--<ul th:if="${#fields.hasErrors('*')}">
+        <li th:each="error : ${#fields.errors('*')}" th:text="${error}">error</li>
+    </ul>-->
+</form>
 </main>
-<script th:src="@{js/registration.js}"></script>
 </body>
 </html>

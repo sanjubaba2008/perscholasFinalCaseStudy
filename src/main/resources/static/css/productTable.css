@@ -1,0 +1,11 @@
+table {
+    border: 4px solid black;
+}
+
+th, td {
+    border: 2px solid black;
+}
+
+input {
+    margin-bottom: 8px;
+}

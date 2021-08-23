@@ -52,8 +52,8 @@
                             <li><a class="dropdown-item" th:href="@{/console/getallstudent}">Show All Products</a></li>
                             <li><a class="dropdown-item" th:href="@{#}">Show All Customers</a></li>
                             <li><hr class="dropdown-divider" /></li>
-                            <li><a class="dropdown-item" th:href="@{/console/getstudentbyid}">Get Customer By Email</a></li>
-                            <li><a class="dropdown-item" th:href="@{#}">Get product By Id</a></li>
+                            <li><a class="dropdown-item" th:href="@{/getcustomerbyemail}">Get Customer By Email</a></li>
+                            <li><a class="dropdown-item" th:href="@{/getproductbyid}">Get product By Id</a></li>
                         </ul>
                     </li>
 
@@ -62,7 +62,7 @@
                     <li class="nav-item"><a class="nav-link" th:href="@{/contact}">Contact Us</a></li>
                 </div>
                 <div sec:authorize="isAuthenticated()">
-                    <li class="nav-item"><a class="nav-link" th:href="@{/logout}">Products</a></li>
+                    <li class="nav-item"><a class="nav-link" th:href="@{/products}">Products</a></li>
                 </div>
                 <div sec:authorize="isAuthenticated()">
                     <li class="nav-item"><a class="nav-link" th:href="@{/logout}">Logout</a></li>

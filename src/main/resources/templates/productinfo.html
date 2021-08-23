@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>product Information</title>
+    <link th:href="@{/css/styles.css}" rel="stylesheet" />
+    <link th:href="@{/css/productTable.css}" rel="stylesheet" />
+</head>
+<body>
+<!-- Page content-->
+<div class="container">
+    <div class="text-center mt-5">
+        <h1>Product</h1>
+        <table class="table">
+            <thead>
+            <tr>
+                <th class="col-4">Name</th>
+                <th class="col-4">Price</th>
+                <th class="col-4">Description</th>
+                <th class="col-4">Stock</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td class="col-4" th:text="${product.name}"></td>
+                <td class="col-4" th:text="${product.price}"></td>
+                <td class="col-4" th:text="${product.description}"></td>
+                <td class="col-4" th:text="${product.stock}"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

@@ -8,6 +8,12 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Slf4j
 public class LoginController {
 
+    @GetMapping("/login")
+    public String showLoginPage(){
+        log.warn("requested login.html");
+        return "login";
+    }
+
     @GetMapping("/login/password")
     public String getForgetPasswordPage(){
         log.warn("requested newPassword.html");

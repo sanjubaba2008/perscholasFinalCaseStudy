@@ -61,9 +61,34 @@ public class ProductController {
         return "allproducts";
     }
 
+    @GetMapping
+    public List<Product> getAllProducts(){
+        return productService.getAllProducts();
 
+    }
 
+    @PostMapping("/registerNewProduct")
+    public void registerNewProduct(@RequestBody Product product){
 
+        productService.addNewProduct(product);
+    }
+
+    @DeleteMapping(path = "/deleteProduct/{productId}")
+    public void deleteProduct(@PathVariable("productId") Long productId){
+        productService.deleteProduct(productId);
+
+    }
+
+    @PutMapping(value = "/updateProduct/{productId}")
+    public void updateProduct(
+            @PathVariable("productId") Long productId,
+            @RequestParam(required = false) String name,
+            @RequestParam(required = false) Double price,
+            @RequestParam(required = false) Integer stock,
+            @RequestParam(required = false) String desc){
+        productService.updateProduct(productId,name,price,stock,desc);
+
+    }
 
 
 }

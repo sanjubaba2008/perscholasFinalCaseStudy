@@ -6,9 +6,7 @@ import com.ayurveda.caseStudy.services.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -43,5 +41,29 @@ public class CustomerController {
         List<Customer> customers= customerService.getAllCustomers();
         model.addAttribute("customers", customers);
         return "allcustomers";
+    }
+
+   /* @PostMapping
+    public void registerNewCustomer(@RequestBody Customer customer){
+
+        customerService.addNewCustomer(customer);
+    }*/
+
+    @DeleteMapping(path="{customerId}")
+    public void deleteCustomer(@PathVariable("customerId") Long customerId){
+       customerService.deleteCustomer(customerId);
+
+    }
+
+    //Put is used when we want to update a resource in your system
+    //for e.g we are updating name and email
+    @PutMapping(path = "{customerId}")
+    public void updateCustomer(
+            @PathVariable("customerId") Long customerId,
+            @RequestParam(required = false) String firstName,
+            @RequestParam(required = false) String lastName,
+            @RequestParam(required = false) String email){
+        customerService.updateCustomer(customerId,firstName,lastName,email);
+
     }
 }

@@ -5,6 +5,7 @@ import com.ayurveda.caseStudy.models.Product;
 import com.ayurveda.caseStudy.repo.CustomerRepo;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -62,30 +63,62 @@ public class CustomerService  {
         }
        customerRepo.deleteById(id);
     }
+//    public Customer getCurrentlyLoggedInCustomer(Authentication authentication){
+//        if(authentication == null) return null;
+//        Customer customer = null;
+//        Object principal = authentication.getPrincipal();
+//
+//        if(principal instanceof Customer)
+//    }
 
     @Transactional //it means that I don't have to implement any JPQL query. when we have this
     //annotation, the entity goes to a managed state
     public void updateCustomer(Long customerId, String firstName, String lastName, String email) {
 
-        Customer customer = customerRepo.findById(customerId).orElseThrow(() -> new IllegalStateException(
-                "customer with id " + customerId + " does not exist")
-        );
-        if(firstName != null && firstName.length() > 0 && !Objects.equals(customer.getFirstName(), firstName)){
-            customer.setFirstName(firstName);
-        }
-        if(lastName != null && lastName.length() > 0 && !Objects.equals(customer.getLastName(), lastName)){
-            customer.setLastName(lastName);
-        }
-        if(email != null && email.length() > 0 && !Objects.equals(customer.getEmail(), email)){
-            //check if the email has been taken or not
-            Optional<Customer> customerOptional = customerRepo.findCustomerByEmail(email);
-            if(customerOptional.isPresent()){
-                throw new IllegalStateException("email taken");
+//        log.warn("beginning of the updateCustomer method");
+//        Customer customer = customerRepo.findById(customerId).orElseThrow(() -> new IllegalStateException(
+//                "customer with id " + customerId + " does not exist")
+//        );
+//        if(firstName != null && firstName.length() > 0 && !Objects.equals(customer.getFirstName(), firstName)){
+//            customer.setFirstName(firstName);
+//            log.warn("firstName changed"+firstName);
+//        }
+//
+//        if(lastName != null && lastName.length() > 0 && !Objects.equals(customer.getLastName(), lastName)){
+//            customer.setLastName(lastName);
+//            log.warn("lastName changed"+lastName);
+//        }
+//        if(email != null && email.length() > 0 && !Objects.equals(customer.getEmail(), email)){
+//            //check if the email has been taken or not
+//            Optional<Customer> customerOptional = customerRepo.findCustomerByEmail(email);
+//            if(customerOptional.isPresent()){
+//                throw new IllegalStateException("email taken");
+//
+//
+//            }
+//            customer.setEmail(email);
+//            log.warn("email changed"+email);
+        //}
+        Customer customerX = new Customer(customerId,firstName,lastName,email);
+        customerRepo.save(customerX);
+        log.warn("saving"+customerX);
 
-            }
-            customer.setEmail(email);
+    }
+    public boolean validateCustomer(Customer customer) {
+        Customer newCustomer = this.getSingleCustomer(customer.getEmail());
+
+        if (newCustomer == null) {
+            return false;
         }
 
+        String custPassword = newCustomer.getPassword();
+
+        if (custPassword.equals(customer.getPassword())) {
+            return true;
+        }
+        else {
+            return false;
+        }
     }
 
 

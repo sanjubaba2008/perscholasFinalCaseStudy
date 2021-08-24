@@ -43,11 +43,7 @@ public class Customer {
 
     @NonNull
     //@NotBlank(message = "Password is required")
-    @Pattern(regexp = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#&()–{}:;',?/*~$^+=<>]).{8,20}$",message= "Password must contain: at least one digit [0-9],\n" +
-            " at least one lowercase character [a-z],\n" +
-            " at least one uppercase character [A-Z],\n" +
-            " at least one special character like ! @ # & ( ),\n" +
-            " must contain a length between 8 and 20 characters.")
+    @Pattern(regexp = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#&()–{}:;',?/*~$^+=<>]).{8,20}$",message= "Please enter a valid password")
     String password;
 
 
@@ -64,5 +60,12 @@ public class Customer {
         this.email = email;
         this.password = password;
         this.address = address;
+    }
+
+    public Customer(Long id, @NonNull String firstName, @NonNull String lastName, @NonNull String email) {
+        this.id = id;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
     }
 }

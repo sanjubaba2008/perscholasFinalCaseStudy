@@ -1,20 +1,17 @@
 package com.ayurveda.caseStudy.controllers;
 
-import com.ayurveda.caseStudy.models.Cart;
-import com.ayurveda.caseStudy.models.Customer;
 import com.ayurveda.caseStudy.models.Product;
 import com.ayurveda.caseStudy.services.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.validation.Valid;
+import java.util.ArrayList;
 import java.util.List;
 
 @Controller
+@SessionAttributes({"cart"})
 public class ProductController {
 
    final ProductService productService;
@@ -24,6 +21,11 @@ public class ProductController {
     @Autowired
     public ProductController(ProductService productService) {
         this.productService = productService;
+    }
+
+    @ModelAttribute("cart")
+    public List<Product> initListProduct(){
+        return new ArrayList<Product>();
     }
 
     @GetMapping("/products")

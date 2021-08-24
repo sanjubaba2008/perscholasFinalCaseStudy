@@ -3,13 +3,14 @@ package com.ayurveda.caseStudy.controllers;
 import com.ayurveda.caseStudy.models.Customer;
 import com.ayurveda.caseStudy.models.Product;
 import com.ayurveda.caseStudy.services.CustomerService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-
+@Slf4j
 @Controller
 public class CustomerController {
 
@@ -49,7 +50,7 @@ public class CustomerController {
         customerService.addNewCustomer(customer);
     }*/
 
-    @DeleteMapping(path="{customerId}")
+    @DeleteMapping(path="/{customerId}")
     public void deleteCustomer(@PathVariable("customerId") Long customerId){
        customerService.deleteCustomer(customerId);
 
@@ -57,12 +58,14 @@ public class CustomerController {
 
     //Put is used when we want to update a resource in your system
     //for e.g we are updating name and email
-    @PutMapping(path = "{customerId}")
+    @ResponseBody
+    @PutMapping(path = "/{customerId}")
     public void updateCustomer(
             @PathVariable("customerId") Long customerId,
-            @RequestParam(required = false) String firstName,
-            @RequestParam(required = false) String lastName,
-            @RequestParam(required = false) String email){
+            @RequestParam(required = false,name = "firstName") String firstName,
+            @RequestParam(required = false,name = "lastName") String lastName,
+            @RequestParam(required = false,name = "email") String email){
+        log.warn("customerId= "+ customerId +" firstName "+firstName +"lastName "+lastName +" email" + email);
         customerService.updateCustomer(customerId,firstName,lastName,email);
 
     }

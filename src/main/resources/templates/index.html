@@ -41,7 +41,7 @@
                 </div>
 
                 <div sec:authorize="isAnonymous()">
-                    <li class="nav-item"><a class="nav-link" th:href="@{/courses/registercourse}">Cart</a></li>
+                    <li class="nav-item"><a class="nav-link" th:href="@{/cart}">Cart</a></li>
                 </div>
 
                 <div sec:authorize="hasRole('ROLE_ADMIN')">
@@ -49,8 +49,8 @@
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Admin</a>
                         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" th:href="@{/console/getallstudent}">Show All Products</a></li>
-                            <li><a class="dropdown-item" th:href="@{#}">Show All Customers</a></li>
+                            <li><a class="dropdown-item" th:href="@{/allproducts}">Show All Products</a></li>
+                            <li><a class="dropdown-item" th:href="@{/allcustomers}">Show All Customers</a></li>
                             <li><hr class="dropdown-divider" /></li>
                             <li><a class="dropdown-item" th:href="@{/getcustomerbyemail}">Get Customer By Email</a></li>
                             <li><a class="dropdown-item" th:href="@{/getproductbyid}">Get product By Id</a></li>

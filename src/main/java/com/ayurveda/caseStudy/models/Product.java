@@ -38,5 +38,8 @@ public class Product {
     @Column(length = 700)
     String description;
 
+    @NonNull
+    String image;
+
 
 }

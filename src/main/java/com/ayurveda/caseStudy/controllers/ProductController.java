@@ -1,5 +1,7 @@
 package com.ayurveda.caseStudy.controllers;
 
+import com.ayurveda.caseStudy.models.Cart;
+import com.ayurveda.caseStudy.models.Customer;
 import com.ayurveda.caseStudy.models.Product;
 import com.ayurveda.caseStudy.services.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,11 +12,14 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
+import java.util.List;
 
 @Controller
 public class ProductController {
 
    final ProductService productService;
+
+
 
     @Autowired
     public ProductController(ProductService productService) {
@@ -41,6 +46,21 @@ public class ProductController {
 
         return "productinfo";
     }
+    @PostMapping("/cart")
+    public String postCart(Model model, @ModelAttribute("product") Product product){
+
+        product =productService.getSingleProduct(product.getPid());
+        model.addAttribute("product", product);
+
+        return "productinfo";
+    }
+    @GetMapping("/allproducts")
+    public String getProducts(Model model) {
+        List<Product> products= productService.getAllProducts();
+        model.addAttribute("products", products);
+        return "allproducts";
+    }
+
 
 
 

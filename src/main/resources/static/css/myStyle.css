@@ -1,28 +1,26 @@
 @charset "UTF-8";
-div{
-    position: relative;
-    left: 30%;
+
+
+.myclass{
     width: 500px;
-    height: 700px;
-    background-color:#b9e109;
-    margin-top: 50px;
-
-
-}
-div div{
-    width: 200px;
-    height: 275px;
+    height: 400px;
     background-color: white;
     position: relative;
-    left: 150px;
-    top: 100px;
+    left: 250px;
+    top: 50px;
     text-align: center;
     color: grey;
     padding-top: 50px;
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     box-shadow: 4px 3px 8px 3px #969696;
-
-
+}
+.anotherclass{
+    position: relative;
+    left: 30%;
+    width: 200px;
+    height: 300px;
+    background-color:#b9e109;
+    margin-top: 20px;
 }
 .myInput{
 
@@ -45,6 +43,7 @@ a{
     color: red;
     text-decoration-line: none;
 }
+/*
 img{
     height: 100px;
     width: 100px;
@@ -55,4 +54,4 @@ img{
     background-color: black;
     box-shadow: 4px 3px 8px 3px #969696;
 
-}
+}*/

@@ -1,16 +1,13 @@
 package com.ayurveda.caseStudy.services;
 
 import com.ayurveda.caseStudy.models.Customer;
-import com.ayurveda.caseStudy.models.Product;
 import com.ayurveda.caseStudy.repo.CustomerRepo;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
-import java.util.Objects;
 import java.util.Optional;
 
 @Slf4j

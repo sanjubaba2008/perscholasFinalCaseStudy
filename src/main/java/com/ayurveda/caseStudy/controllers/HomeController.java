@@ -1,7 +1,6 @@
 package com.ayurveda.caseStudy.controllers;
 
 import com.ayurveda.caseStudy.models.Customer;
-import com.ayurveda.caseStudy.repo.CustomerRepo;
 import com.ayurveda.caseStudy.services.CustomerService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,15 +1,10 @@
 package com.ayurveda.caseStudy.models;
 
-import com.ayurveda.caseStudy.services.ProductService;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
 
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.List;
 
 
 @Getter

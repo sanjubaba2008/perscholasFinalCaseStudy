@@ -65,7 +65,7 @@ public class CustomerAndProductConfig {
                     15.99,
                     16,
                     "Ashwagandha is an ancient medicinal herb with multiple health benefits."+"\n"+"It can reduce anxiety and stress, help fight depression,"+" \n"+"boost fertility and testosterone in men, and even boost brain function.",
-                    "webapp/ashwagandha.jpeg"
+                    "webapp/image/ashwagandha.jpeg"
 
             );
             Product productThree = new Product(

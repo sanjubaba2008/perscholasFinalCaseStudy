@@ -19,7 +19,7 @@
             <div class="product-grid6">
 
                 <div class="product-content">
-                    <img th:src="@{${product.image}}"/>
+                    <img th:src="@{${product.getImage()}}"/>
                     <h3 class="title" th:text="${product.name}"></h3>
                     <div class="price" th:text="${product.price}">$</div>
                     <div th:text="${product.description}"></div>
@@ -29,6 +29,7 @@
                 </ul>
             </div>
         </div>
+        <div><img th:src="@{${product.image}}"/></div>
 
 </div>
 </div>

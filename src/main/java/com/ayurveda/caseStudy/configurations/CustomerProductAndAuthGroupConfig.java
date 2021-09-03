@@ -1,20 +1,24 @@
 package com.ayurveda.caseStudy.configurations;
 
+import com.ayurveda.caseStudy.models.AuthGroup;
 import com.ayurveda.caseStudy.models.Customer;
 import com.ayurveda.caseStudy.models.Product;
+import com.ayurveda.caseStudy.repo.AuthGroupRepo;
 import com.ayurveda.caseStudy.repo.CustomerRepo;
 import com.ayurveda.caseStudy.repo.ProductRepo;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 import java.util.List;
 
+@Slf4j
 @Configuration
-public class CustomerAndProductConfig {
+public class CustomerProductAndAuthGroupConfig {
     @Bean
 //this method runs
-    CommandLineRunner commandLineRunner(CustomerRepo repositoryOne,ProductRepo repositoryTwo){//we are injecting CustomerRepository and productRepository
+    CommandLineRunner commandLineRunner(CustomerRepo repositoryOne, ProductRepo repositoryTwo, AuthGroupRepo repositoryThree){//we are injecting CustomerRepository and productRepository
         return args -> {
             Customer customerOne = new Customer(
                     "James",
@@ -90,8 +94,18 @@ public class CustomerAndProductConfig {
                     ""
 
             );
+            AuthGroup authGroupone = new AuthGroup(1L, "ROLE_ADMIN");
+            AuthGroup authGrouptwo= new AuthGroup(1L, "ROLE_USER");
+            AuthGroup authGroupthree = new AuthGroup(1L, "WRITE");
+            AuthGroup authGroupfour= new AuthGroup(2L, "ROLE_ADMIN");
+            AuthGroup authGroupfive = new AuthGroup(2L, "ROLE_USER");
+            AuthGroup authGroupsix = new AuthGroup(3L, "ROLE_USER");
+            AuthGroup authGroupseven = new AuthGroup(4L, "ROLE_USER");
+            AuthGroup authGroupeight = new AuthGroup(5L, "ROLE_USER");
+
             repositoryOne.saveAll(List.of(customerOne,customerTwo,customerThree,customerFour,customerFive));
             repositoryTwo.saveAll(List.of(productOne,productTwo,productThree,productFour,productFive));
+            repositoryThree.saveAll(List.of(authGroupone,authGrouptwo,authGroupthree,authGroupfour,authGroupfive,authGroupsix,authGroupseven,authGroupeight));
 
 
         };

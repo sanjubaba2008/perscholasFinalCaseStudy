@@ -11,7 +11,7 @@
 <div class="container">
     <div class="text-center mt-5">
         <h1>Search customer by Email</h1>
-        <form action="getcustomerbyemail" method="post" th:object="${customer}">
+        <form action="/console/getcustomerbyemail" method="post" th:object="${customer}">
             <label>Enter Email</label>
             <input type="text"  class="form-control" th:field="*{email}" />
             <!--      <label style="color:red" th:each="error:${#fields.errors('email')}" th:text="${error}">error</label>-->

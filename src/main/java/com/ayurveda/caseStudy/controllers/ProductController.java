@@ -34,20 +34,6 @@ public class ProductController {
         return "products";
     }
 
-    @GetMapping("/getproductbyid")
-    public String getProductById(Model model){
-        model.addAttribute("product",new Product());
-        return "productbyid";
-
-    }
-    @PostMapping("/getproductbyid")
-    public String postproductById(Model model, @ModelAttribute("product") Product product){
-
-        product =productService.getSingleProduct(product.getPid());
-        model.addAttribute("product", product);
-
-        return "productinfo";
-    }
     @PostMapping("/cart")
     public String postCart(Model model, @ModelAttribute("product") Product product){
 
@@ -56,12 +42,7 @@ public class ProductController {
 
         return "productinfo";
     }
-    @GetMapping("/allproducts")
-    public String getProducts(Model model) {
-        List<Product> products= productService.getAllProducts();
-        model.addAttribute("products", products);
-        return "allproducts";
-    }
+
 
     @GetMapping
     public List<Product> getAllProducts(){

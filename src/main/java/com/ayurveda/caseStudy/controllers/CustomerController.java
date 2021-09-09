@@ -1,17 +1,19 @@
 package com.ayurveda.caseStudy.controllers;
 
 import com.ayurveda.caseStudy.models.Customer;
-import com.ayurveda.caseStudy.models.Product;
 import com.ayurveda.caseStudy.services.CustomerService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
+import javax.validation.Valid;
+
 @Slf4j
 @Controller
+
 public class CustomerController {
 
     final CustomerService customerService;
@@ -21,28 +23,34 @@ public class CustomerController {
         this.customerService = customerService;
     }
 
-    @GetMapping("/getcustomerbyemail")
-    public String getCustomerByemail(Model model){
-        model.addAttribute("customer",new Customer());
-        return "customerbyemail";
+    @GetMapping("/registercustomer")
+    public String showRegistrationPage(Model model){
+        log.warn("requested registercustomer.html");
+        model.addAttribute("thecustomer", new Customer());
+        return "registercustomer";
 
     }
 
-    @PostMapping("/getcustomerbyemail")
-    public String postCustomerByEmail(Model model, @ModelAttribute("customer") Customer customer){
+    //I used PostMapping to add new resources in my system, In this I want to
+    //add a new Customer
+    @PostMapping("/registercustomer")
+    public String showRegistrationData(@ModelAttribute("thecustomer") @Valid Customer customer, BindingResult bindingResult, Model model){
+        log.warn("post request");
+        if(bindingResult.hasErrors()){
+            log.warn(bindingResult.getAllErrors().toString());
+            return "registercustomer";
 
-        customer =customerService.getSingleCustomer(customer.getEmail());
-        model.addAttribute("customer", customer);
+        }
+        model.addAttribute("thecustomer",customer) ;
+        customerService.saveCustomer(customer);
 
-        return "customerinfo";
+        return "result";
     }
 
-    @GetMapping("/allcustomers")
-    public String getCustomers(Model model) {
-        List<Customer> customers= customerService.getAllCustomers();
-        model.addAttribute("customers", customers);
-        return "allcustomers";
-    }
+
+
+
+
 
    /* @PostMapping
     public void registerNewCustomer(@RequestBody Customer customer){

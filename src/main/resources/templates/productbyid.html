@@ -11,7 +11,7 @@
 <div class="container">
     <div class="text-center mt-5">
         <h1>Search product by Id</h1>
-        <form action="getproductbyid" method="post" th:object="${product}">
+        <form action="/console/getproductbyid" method="post" th:object="${product}">
             <label>Enter Id</label>
             <input type="text"  class="form-control" th:field="*{pid}" />
             <!--      <label style="color:red" th:each="error:${#fields.errors('email')}" th:text="${error}">error</label>-->

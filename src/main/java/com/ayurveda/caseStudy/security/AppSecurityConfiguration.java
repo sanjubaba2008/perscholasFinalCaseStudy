@@ -32,7 +32,7 @@ public class AppSecurityConfiguration extends WebSecurityConfigurerAdapter {
         return provider;
 
     }
-    //4
+    //customer provider
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.authenticationProvider(authenticationProvider());
@@ -40,28 +40,32 @@ public class AppSecurityConfiguration extends WebSecurityConfigurerAdapter {
     }
 
 
-    //1
+    //magic happens here (filtering)
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .csrf().disable()
-
-
                 .authorizeRequests()
                 .antMatchers("/console/**").hasAuthority("ROLE_ADMIN")
                 .antMatchers("/customer/**").hasAnyAuthority("ROLE_USER","ROLE_ADMIN")
                 .anyRequest().authenticated()
                 .and()
-                .formLogin().loginPage("/login").usernameParameter("username").passwordParameter("password").loginProcessingUrl("/login/authenticate").defaultSuccessUrl("/").failureUrl("/login?error=true").permitAll()
+                .formLogin().loginPage("/login")
+                .usernameParameter("username")
+                .passwordParameter("password")
+                .loginProcessingUrl("/login/authenticate")
+                .defaultSuccessUrl("/")
+                .failureUrl("/login?error=true")
+                .permitAll()
                 .and()
                 .logout().invalidateHttpSession(true).clearAuthentication(true).logoutRequestMatcher(new AntPathRequestMatcher("/logout")).logoutSuccessUrl("/").permitAll()
                 .and().
                 exceptionHandling().accessDeniedPage("/403");
     }
-    //2
+    //ignore resource folder
     @Override
     public void configure(final WebSecurity web) throws Exception {
-        web.ignoring().antMatchers("/resources/**", "/static/**", "/css/**", "/js/**", "/imgs/**", "/fileupload/**");
+        web.ignoring().antMatchers("/resources/**", "/static/**", "/css/**", "/js/**", "/images/**", "/fileupload/**","/contact","/registercustomer","/products");
     }
 
 }

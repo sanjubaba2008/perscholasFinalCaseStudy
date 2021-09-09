@@ -24,7 +24,8 @@ public class CustomerProductAndAuthGroupConfig {
                     "James",
                     "Butt",
                     "jbutt@gmail.com",
-                    "JamesButt2@21",
+                    "$2a$04$F463V3iUu9p1f.sndVAzd.RflqpRdgoytbjUHWzXOjVBcAP6d40J6",
+                    //"JamesButt2@21"
                     "6649 N Blue Gum St"
 
             );
@@ -32,28 +33,32 @@ public class CustomerProductAndAuthGroupConfig {
                     "Josephine",
                     "Darakjy",
                     "josephine_darakjy@darakjy.org",
-                   "JoseDarak2@31",
+                    "$2a$04$vFI9OHWW8zE1v2CuI4PqdOqw3OF2sAo5sHI6kIp4AKx4eKZ9TPlNe",
+                   //"JoseDarak2@31",
                    "4 B Blue Ridge Blvd"
             );
             Customer customerThree = new Customer(
                     "Art",
                     "Venere",
                     "art@venere.org",
-                    "Artvenere2@41",
+                    "$2a$04$jba2lryTTcUdkOgCGq13re8ztb1nssc2p.Bl6USoXgEKXSWsSdAy2",
+                    //"Artvenere2@41",
                     "8 W Cerritos Ave #54"
             );
             Customer customerFour = new Customer(
                     "Lenna",
                     "Paprocki",
                     "lpaprocki@hotmail.com",
-                    "Paprocki2#55",
+                    "$2a$04$vg1nG8z3sxvluec5diGayuQFAdtWROZT6vu7O7lN8wO2apGzOmxSq",
+                    //"Paprocki2#55",
                     "639 Main St"
             );
             Customer customerFive = new Customer(
                     "Donette",
                     "Foller",
                     "donette.foller@cox.net",
-                    "Foller2&110",
+                    "$2a$04$.tnxzhbwcN/XZzYyuGHjDemc4Xo41mLwKVTm1AHIFROBqEDsvABJ.",
+                    //"Foller2&110",
                     "434 Center St"
             );
             Product productOne = new Product(

@@ -5,7 +5,6 @@ import lombok.experimental.FieldDefaults;
 import lombok.extern.slf4j.Slf4j;
 
 import javax.persistence.*;
-import javax.validation.constraints.Size;
 
 @Getter
 @Setter
@@ -39,7 +38,16 @@ public class Product {
     String description;
 
     @NonNull
-    String image;
+    String photos;
+
+   // String photosImagePath;
+
+    @Transient
+    public String getPhotosImagePath() {
+        if (photos == null || pid == null) return null;
+
+        return "/brand-logos/"  + photos;
+    }
 
 
 }

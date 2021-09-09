@@ -65,7 +65,7 @@ public class AppSecurityConfiguration extends WebSecurityConfigurerAdapter {
     //ignore resource folder
     @Override
     public void configure(final WebSecurity web) throws Exception {
-        web.ignoring().antMatchers("/resources/**", "/static/**", "/css/**", "/js/**", "/images/**", "/fileupload/**","/contact","/registercustomer","/products");
+        web.ignoring().antMatchers("/resources/**", "/static/**", "/css/**", "/js/**", "/images/**", "/fileupload/**","/contact","/registercustomer","/products","/index");
     }
 
 }

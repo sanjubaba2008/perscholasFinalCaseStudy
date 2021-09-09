@@ -25,6 +25,7 @@ public class ProductController {
 
     @ModelAttribute("cart")
     public List<Product> initListProduct(){
+
         return new ArrayList<Product>();
     }
 

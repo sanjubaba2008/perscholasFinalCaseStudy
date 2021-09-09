@@ -17,7 +17,7 @@
   <link rel="icon" type="image/x-icon" th:href="@{assets/favicon.ico}" />
   <!-- Core theme CSS (includes Bootstrap)-->
   <link th:href="@{css/styles.css}" rel="stylesheet" />
-  <link th:href="@{css/mystyles.css}" rel="stylesheet" />
+
 </head>
 <body>
 <!-- Responsive navbar-->
@@ -34,14 +34,15 @@
           </div>
         </li>
         <li class="nav-item"><a class="nav-link active" aria-current="page" th:href="@{/}">Home</a></li>
-        <li class="nav-item"><a class="nav-link" th:href="@{/register}">New Customer<br>Register Here</a></li>
+        <li class="nav-item"><a class="nav-link" th:href="@{/registercustomer}">New Customer<br>Register Here</a></li>
         <div sec:authorize="isAuthenticated()">
-          <li class="nav-item"><a class="nav-link" th:href="@{/login}">Existing Customer<br>Login Here</a></li>
+          <li class="nav-item"><a class="nav-link" th:href="@{customer/cart}">Cart</a></li>
 
         </div>
 
         <div sec:authorize="isAnonymous()">
-          <li class="nav-item"><a class="nav-link" th:href="@{/cart}">Cart</a></li>
+
+          <li class="nav-item"><a class="nav-link" th:href="@{/login}">Existing Customer<br>Login Here</a></li>
         </div>
 
         <div sec:authorize="hasRole('ROLE_ADMIN')">
@@ -49,11 +50,11 @@
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Admin</a>
             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <li><a class="dropdown-item" th:href="@{/allproducts}">Show All Products</a></li>
-              <li><a class="dropdown-item" th:href="@{/allcustomers}">Show All Customers</a></li>
+              <li><a class="dropdown-item" th:href="@{/console/getallproducts}">Show All Products</a></li>
+              <li><a class="dropdown-item" th:href="@{/console/getallcustomers}">Show All Customers</a></li>
               <li><hr class="dropdown-divider" /></li>
-              <li><a class="dropdown-item" th:href="@{/getcustomerbyemail}">Get Customer By Email</a></li>
-              <li><a class="dropdown-item" th:href="@{/getproductbyid}">Get product By Id</a></li>
+              <li><a class="dropdown-item" th:href="@{/console/getcustomerbyemail}">Get Customer By Email</a></li>
+              <li><a class="dropdown-item" th:href="@{/console/getproductbyid}">Get product By Id</a></li>
             </ul>
           </li>
 
@@ -61,7 +62,7 @@
         <div >
           <li class="nav-item"><a class="nav-link" th:href="@{/contact}">Contact Us</a></li>
         </div>
-        <div sec:authorize="isAuthenticated()">
+        <div >
           <li class="nav-item"><a class="nav-link" th:href="@{/products}">Products</a></li>
         </div>
         <div sec:authorize="isAuthenticated()">

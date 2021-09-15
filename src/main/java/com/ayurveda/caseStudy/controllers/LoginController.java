@@ -50,10 +50,10 @@ public class LoginController {
         return "/";
     }
 
-    @GetMapping("error")
+    /*@GetMapping("error")
     public String error(){
 
         return "error";
-    }
+    }*/
 
 }

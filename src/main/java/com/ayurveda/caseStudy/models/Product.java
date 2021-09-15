@@ -46,7 +46,7 @@ public class Product {
     public String getPhotosImagePath() {
         if (photos == null || pid == null) return null;
 
-        return "/brand-logos/"  + photos;
+        return "/images/brand-logos/"  + photos;
     }
 
 

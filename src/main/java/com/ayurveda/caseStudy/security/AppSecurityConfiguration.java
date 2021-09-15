@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
+import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -14,6 +15,7 @@ import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 @Configuration
 @EnableWebSecurity
+@EnableGlobalMethodSecurity(prePostEnabled = true)
 public class AppSecurityConfiguration extends WebSecurityConfigurerAdapter {
 
 
@@ -54,7 +56,7 @@ public class AppSecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .usernameParameter("username")
                 .passwordParameter("password")
                 .loginProcessingUrl("/login/authenticate")
-                .defaultSuccessUrl("/")
+                .defaultSuccessUrl("/",true)
                 .failureUrl("/login?error=true")
                 .permitAll()
                 .and()
@@ -65,7 +67,7 @@ public class AppSecurityConfiguration extends WebSecurityConfigurerAdapter {
     //ignore resource folder
     @Override
     public void configure(final WebSecurity web) throws Exception {
-        web.ignoring().antMatchers("/resources/**", "/static/**", "/css/**", "/js/**", "/images/**", "/fileupload/**","/contact","/registercustomer","/products","/index");
+        web.ignoring().antMatchers("/resources/**", "/static/**", "/css/**", "/images/**","/contact","/registercustomer","/products","/index");
     }
 
 }

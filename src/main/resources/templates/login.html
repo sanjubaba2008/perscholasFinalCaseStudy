@@ -1,41 +1,120 @@
 <!DOCTYPE html>
 <html lang="en"
-xmlns:th="http://www.thymeleaf.org"
-xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4"
-xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-xsi:schemaLocation="http://www.thymeleaf.org http://www.thymeleaf.org
-http://www.ultraq.net.nz/thymeleaf/layout https://www.ultraq.net.nz/thymeleaf/layout
-http://www.thymeleaf.org/thymeleaf-extras-springsecurity4 http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.thymeleaf.org http://www.thymeleaf.org
+  http://www.ultraq.net.nz/thymeleaf/layout https://www.ultraq.net.nz/thymeleaf/layout
+  http://www.thymeleaf.org/thymeleaf-extras-springsecurity4 http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <meta name="description" content="" />
-    <meta name="author" content="" />
-    <title>
-        login
-    </title>
-    <link th:href="@{css/myStyle.css}" rel="stylesheet" />
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <meta name="description" content=""/>
+    <meta name="author" content=""/>
+    <title>Bare - Start Bootstrap Template</title>
+    <!-- Favicon-->
+    <link rel="icon" type="image/x-icon" th:href="@{assets/favicon.ico}" />
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link th:href="@{css/styles.css}" rel="stylesheet" />
+
 </head>
 <body>
-<div>
+<!-- Responsive navbar-->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+        <a class="navbar-brand" th:href="@{/}">Ayurvedic Medicine Shop</a>
 
-    <div> <svg id="i-user" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="70" height="70" fill="#9874ff" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
-        <path d="M22 11 C22 16 19 20 16 20 13 20 10 16 10 11 10 6 12 3 16 3 20 3 22 6 22 11 Z M4 30 L28 30 C28 21 22 20 16 20 10 20 4 21 4 30 Z" />
-    </svg>
-        <form th:action = "@{/login}" th:object = "${currentCustomer}" method = "post">
-            User Login
-            <input class="myInput"   type="text" th:field = "*{email}" placeholder="Email" >
-            <p th:each="error : ${#fields.errors('email')}" th:text="${error}" th:style="'color: red;'">error</p>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <div sec:authorize="isAuthenticated()">
+                        <a class="nav-link active" aria-current="page" th:href="@{/}">User: <span sec:authentication="name"></span> Privileges: <span sec:authentication="principal.authorities"></span></a>
+                    </div>
+                </li>
+                <li class="nav-item"><a class="nav-link active" aria-current="page" th:href="@{/}">Home</a></li>
+                <li class="nav-item"><a class="nav-link" th:href="@{/registercustomer}">New Customer<br>Register Here</a></li>
+                <div sec:authorize="isAuthenticated()">
+                    <li class="nav-item"><a class="nav-link" th:href="@{customer/cart}">Cart</a></li>
 
-            <input class="myInput"  type="password"  th:field = "*{password}" placeholder="Password" ><br>
-            <p th:each="error : ${#fields.errors('password')}" th:text="${error}" th:style="'color: red;'">error</p>
+                </div>
 
-            <input class="anotherInput" type="submit" value="LOGIN" ><br><br>
-            <a th:href="@{login/password}" >Forgot password?</a>
-        </form>
-    </div></div>
+                <div sec:authorize="isAnonymous()">
+
+                    <li class="nav-item"><a class="nav-link" th:href="@{/login}">Existing Customer<br>Login Here</a></li>
+                </div>
+
+                <div sec:authorize="hasRole('ROLE_ADMIN')">
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Admin</a>
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" th:href="@{/console/getallproducts}">Show All Products</a></li>
+                            <li><a class="dropdown-item" th:href="@{/console/getallcustomers}">Show All Customers</a></li>
+                            <li><hr class="dropdown-divider" /></li>
+                            <li><a class="dropdown-item" th:href="@{/console/getcustomerbyemail}">Get Customer By Email</a></li>
+                            <li><a class="dropdown-item" th:href="@{/console/getproductbyid}">Get product By Id</a></li>
+                        </ul>
+                    </li>
+
+                </div>
+                <div >
+                    <li class="nav-item"><a class="nav-link" th:href="@{/contact}">Contact Us</a></li>
+                </div>
+                <div >
+                    <li class="nav-item"><a class="nav-link" th:href="@{/products}">Products</a></li>
+                </div>
+                <div sec:authorize="isAuthenticated()">
+                    <li class="nav-item"><a class="nav-link" th:href="@{/logout}">Logout</a></li>
+                </div>
+            </ul>
+        </div>
+    </div>
+</nav>
+<!-- Page content-->
+<div class="container">
+
+
+    <div class="raw">
+        <div class="col">
+        </div>
+
+        <div class="col">
+            <div  th:if="${param.error}" class="error">
+                Invalid username and password.
+            </div>
+            <div  th:if="${param.logout}" class="error">
+                You have been logged out.
+            </div>
+
+            <!-- Login Form -->
+            <form th:action="@{/login/authenticate}" method="post">
+
+
+                <div class="mb-3">
+                    <label for="username" class="form-label">Username</label>
+                    <input type="text" name="username" class="form-control" id="username"
+                           aria-describedby="usernamehelp">
+                    <div id="usernamehelp" class="form-text">Enter Username.</div>
+                </div>
+                <div class="mb-3">
+                    <label for="password" class="form-label">Password</label>
+                    <input type="password" name="password" class="form-control" id="password">
+                </div>
+
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+        <div class="col">
+        </div>
+    </div>
+</div>
+
+
 <!-- Bootstrap core JS-->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"></script>
+<!-- Core theme JS-->
+<script src="../js/scripts.js"></script>
 </body>
 </html>

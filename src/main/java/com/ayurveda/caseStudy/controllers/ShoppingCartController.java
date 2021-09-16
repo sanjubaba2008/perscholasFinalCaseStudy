@@ -23,7 +23,7 @@ public class ShoppingCartController {
         this.customerService = customerService;
     }
 
-    @GetMapping("/cart")
+    @GetMapping("/customer/cart")
     public String showShoppingCart(Model model,Customer customer){
         Customer newcustomer = customerService.getSingleCustomer(customer.getEmail());
         List<CartItem> cartItemList = cartServices.listCartItems(newcustomer);

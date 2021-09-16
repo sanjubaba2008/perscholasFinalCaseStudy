@@ -17,10 +17,12 @@ public class ProductService {
 
     private ProductRepo productRepo;
 
+
     @Autowired
-    public ProductService(ProductRepo productRepo) {
+    public ProductService(ProductRepo productRepo ) {
 
         this.productRepo = productRepo;
+
     }
 
     public List<Product> getListOfAllProducts(){
@@ -77,6 +79,8 @@ public class ProductService {
         product.setDescription(desc);
 
         }
+
+
 
 
     }

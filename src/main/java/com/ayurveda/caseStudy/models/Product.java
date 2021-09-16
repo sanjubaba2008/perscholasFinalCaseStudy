@@ -38,7 +38,16 @@ public class Product {
     String description;
 
     @NonNull
-    String image;
+    String photos;
+
+   // String photosImagePath;
+
+    @Transient
+    public String getPhotosImagePath() {
+        if (photos == null || pid == null) return null;
+
+        return "/images/brand-logos/"  + photos;
+    }
 
 
 }

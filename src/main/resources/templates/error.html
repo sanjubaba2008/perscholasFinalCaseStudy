@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en"
       xmlns:th="http://www.thymeleaf.org"
@@ -5,22 +7,21 @@
       xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4"
       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
       xsi:schemaLocation="http://www.thymeleaf.org http://www.thymeleaf.org
-  http://www.ultraq.net.nz/thymeleaf/layout https://www.ultraq.net.nz/thymeleaf/layout
+  http://www.ultraq.net.nz/thymeleaf/layout http://www.ultraq.net.nz/thymeleaf/layout
   http://www.thymeleaf.org/thymeleaf-extras-springsecurity4 http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="" />
     <meta name="author" content="" />
-    <title>Home</title>
+    <title>error page</title>
     <!-- Favicon-->
     <link rel="icon" type="image/x-icon" th:href="@{assets/favicon.ico}" />
     <!-- Core theme CSS (includes Bootstrap)-->
-    <link th:href="@{css/styles.css}" rel="stylesheet" />
-    <!--<link th:href="@{css/mystyles.css}" rel="stylesheet" />-->
+    <link th:href="@{/css/styles.css}" rel="stylesheet" />
+
 </head>
 <body>
-<!-- Responsive navbar-->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container">
         <a class="navbar-brand" th:href="@{/}">Ayurvedic Medicine Shop</a>
@@ -68,28 +69,34 @@
                 <div sec:authorize="isAuthenticated()">
                     <li class="nav-item"><a class="nav-link" th:href="@{/logout}">Logout</a></li>
                 </div>
-
             </ul>
         </div>
     </div>
 </nav>
+
 <!-- Page content-->
 <div class="container">
     <div class="text-center mt-5">
 
-        <h1>Introduction to Ayurveda</h1>
-<!--        <p class="lead">A complete project boilerplate built with Bootstrap</p>-->
-        <img th:src="@{/images/imageOne.jpeg}"/>
-        <p><strong>Ayurveda</strong>. While the word may be unknown to many, this holistic approach to medicine has been around for over 5,000 years.
-            Ayurveda is the “traditional, ancient Indian system of health science” and known to be one of the oldest medical systems in the world.
-            This type of holistic practice focuses on preventative measures, as well as the balance between body, mind and spirit.
-            It encourages such balance through diet and nutrition, exercise, yoga and meditation and your overall lifestyle.</p>
-        <cite><a href="https://www.mhainde.org/introduction-to-ayurveda/?gclid=CjwKCAjw9uKIBhA8EiwAYPUS3Kb1Fz19eCtNlJXP6RD6uYZTuM7ouNikNN_l942zvM9LqjTYb0Ek9RoCi7MQAvD_BwE" target="_blank">Introduction to Ayurveda</a></cite> by MHA.<br>
+        <h1> ERROR </h1>
+        <div th:if="${message}">
+            <h2 th:text="${message}" />
+
+        </div>
+        <h1>There's no page here!</h1>
+        <p>
+            We're sorry, the page you are looking for does not exist!
+            Go back to <a th:href="@{/}">home page</a>.
+        </p>
+
+
+
     </div>
 </div>
 <!-- Bootstrap core JS-->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"></script>
 <!-- Core theme JS-->
-<script th:src="@{js/scripts.js}"></script>
+<script src="../js/scripts.js"></script>
 </body>
 </html>
+

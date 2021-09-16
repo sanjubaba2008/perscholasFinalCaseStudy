@@ -11,7 +11,7 @@ import org.springframework.context.annotation.Configuration;
 import java.util.List;
 
 @Configuration
-public class CustomerAndProductConfig {
+public class CustomerProductAndAuthGroupConfig {
     @Bean
 //this method runs
     CommandLineRunner commandLineRunner(CustomerRepo repositoryOne,ProductRepo repositoryTwo){//we are injecting CustomerRepository and productRepository

@@ -1,6 +1,7 @@
 package com.ayurveda.caseStudy.controllers;
 
 import com.ayurveda.caseStudy.services.CustomerService;
+import com.ayurveda.caseStudy.services.ProductService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -11,11 +12,13 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class HomeController {
 
     final CustomerService customerService;
+    final ProductService productService;
 
     @Autowired //customerservice will be magically instantiated and injected into constructor
-    public HomeController(CustomerService customerService){
+    public HomeController(CustomerService customerService,ProductService productService){
 
         this.customerService = customerService;
+        this.productService = productService;
     }
 
     //I used GetMapping to get resources from the system
@@ -41,6 +44,7 @@ public class HomeController {
 
         return "403";
     }
+
 
 
 

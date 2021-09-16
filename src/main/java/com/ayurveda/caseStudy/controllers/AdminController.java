@@ -67,12 +67,19 @@ public class AdminController {
 
     }
 
+
     @PostMapping("/getproductbyid")
-    public String postproductById(Model model, @ModelAttribute("product") Product product){
+    public String postproductById(Model model, @ModelAttribute("product") Product product) {
 
-        product =productService.getSingleProduct(product.getPid());
+        product = productService.getSingleProduct(product.getPid());
+
+        String myString = "";
+        if (product == null) {
+            myString = "there is no such product id";
+            model.addAttribute("message", myString);
+            return "error";
+        }
         model.addAttribute("product", product);
-
         return "productinfo";
     }
 

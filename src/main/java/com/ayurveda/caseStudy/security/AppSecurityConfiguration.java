@@ -48,6 +48,10 @@ public class AppSecurityConfiguration extends WebSecurityConfigurerAdapter {
         http
                 .csrf().disable()
                 .authorizeRequests()
+                .antMatchers("/","/index").permitAll()
+                .antMatchers("/contact").permitAll()
+                .antMatchers("/registercustomer").permitAll()
+                .antMatchers("/products").permitAll()
                 .antMatchers("/console/**").hasAuthority("ROLE_ADMIN")
                 .antMatchers("/customer/**").hasAnyAuthority("ROLE_USER","ROLE_ADMIN")
                 .anyRequest().authenticated()
@@ -67,7 +71,7 @@ public class AppSecurityConfiguration extends WebSecurityConfigurerAdapter {
     //ignore resource folder
     @Override
     public void configure(final WebSecurity web) throws Exception {
-        web.ignoring().antMatchers("/resources/**", "/static/**", "/css/**", "/images/**","/contact","/registercustomer","/products","/index");
+        web.ignoring().antMatchers("/resources/**", "/static/**", "/css/**", "/images/**");
     }
 
 }

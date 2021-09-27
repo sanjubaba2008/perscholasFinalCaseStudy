@@ -3,6 +3,7 @@ package com.ayurveda.caseStudy.models;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.stereotype.Component;
 
 import javax.persistence.*;
 import javax.validation.constraints.*;
@@ -19,6 +20,7 @@ import java.util.List;
 @AllArgsConstructor
 @Slf4j
 @Entity
+@Component
 public class Customer implements Serializable {
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)

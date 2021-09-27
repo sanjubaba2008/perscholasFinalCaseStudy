@@ -3,6 +3,7 @@ package com.ayurveda.caseStudy.models;
 
 import lombok.*;
 import lombok.experimental.FieldDefaults;
+import org.springframework.stereotype.Component;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -17,6 +18,7 @@ import java.io.Serializable;
 @ToString
 @FieldDefaults(level = AccessLevel.PRIVATE)
 @Entity
+@Component
 public class AuthGroup implements Serializable {
 
 

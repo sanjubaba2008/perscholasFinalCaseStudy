@@ -3,6 +3,7 @@ package com.ayurveda.caseStudy.models;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.stereotype.Component;
 
 import javax.persistence.*;
 
@@ -15,6 +16,7 @@ import javax.persistence.*;
 @AllArgsConstructor
 @Slf4j
 @Entity
+@Component
 public class Product {
 
     @Id

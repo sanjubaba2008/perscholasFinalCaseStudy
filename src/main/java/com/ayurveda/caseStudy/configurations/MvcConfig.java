@@ -21,6 +21,16 @@ public class MvcConfig implements WebMvcConfigurer {
         } catch (IOException e) {
             e.printStackTrace();
         }
+        registry.addResourceHandler(
+
+                        "/images/**",
+                        "/css/**",
+                        "/js/**")
+                .addResourceLocations(
+
+                        "classpath:/static/images/",
+                        "classpath:/static/css/",
+                        "classpath:/static/js/");
     }
 
     private void exposeDirectory(String dirName, ResourceHandlerRegistry registry) throws IOException {

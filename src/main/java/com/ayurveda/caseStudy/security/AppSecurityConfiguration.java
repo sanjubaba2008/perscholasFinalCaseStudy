@@ -3,11 +3,11 @@ package com.ayurveda.caseStudy.security;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
-import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -20,6 +20,7 @@ public class AppSecurityConfiguration extends WebSecurityConfigurerAdapter {
 
 
     private AppUserDetailsService appUserDetailsService;
+
 
     @Autowired
     public AppSecurityConfiguration(AppUserDetailsService appUserDetailsService) {
@@ -48,7 +49,9 @@ public class AppSecurityConfiguration extends WebSecurityConfigurerAdapter {
         http
                 .csrf().disable()
                 .authorizeRequests()
-                .antMatchers("/","/index").permitAll()
+                .antMatchers(HttpMethod.GET, "/resources/**", "/static/**","/js/**", "/css/**", "/images/**" , "/index", "/").permitAll()
+                //.antMatchers("/","/index").permitAll()
+                .antMatchers("/preview").permitAll()
                 .antMatchers("/contact").permitAll()
                 .antMatchers("/registercustomer").permitAll()
                 .antMatchers("/products").permitAll()
@@ -69,9 +72,9 @@ public class AppSecurityConfiguration extends WebSecurityConfigurerAdapter {
                 exceptionHandling().accessDeniedPage("/403");
     }
     //ignore resource folder
-    @Override
-    public void configure(final WebSecurity web) throws Exception {
-        web.ignoring().antMatchers("/resources/**", "/static/**", "/css/**", "/images/**");
-    }
+//    @Override
+//    public void configure(final WebSecurity web) throws Exception {
+//        web.ignoring().antMatchers( "/css/**","/images/**");
+//    }
 
 }

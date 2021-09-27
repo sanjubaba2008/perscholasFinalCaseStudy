@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.thymeleaf.org http://www.thymeleaf.org
+  http://www.ultraq.net.nz/thymeleaf/layout https://www.ultraq.net.nz/thymeleaf/layout
+  http://www.thymeleaf.org/thymeleaf-extras-springsecurity4 http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <meta name="description" content=""/>
+    <meta name="author" content=""/>
+    <title>Bare - Start Bootstrap Template</title>
+    <!-- Favicon-->
+    <link rel="icon" type="image/x-icon" th:href="@{assets/favicon.ico}" />
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link th:href="@{css/styles.css}" rel="stylesheet" />
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+        <a class="navbar-brand" th:href="@{/}">Ayurvedic Medicine Shop</a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <div sec:authorize="isAuthenticated()">
+                        <a class="nav-link active" aria-current="page" th:href="@{/}">User: <span sec:authentication="name"></span> Privileges: <span sec:authentication="principal.authorities"></span></a>
+                    </div>
+                </li>
+                <li class="nav-item"><a class="nav-link active" aria-current="page" th:href="@{/}">Home</a></li>
+                <li class="nav-item"><a class="nav-link" th:href="@{/registercustomer}">New Customer<br>Register Here</a></li>
+                <div sec:authorize="isAuthenticated()">
+                    <li class="nav-item"><a class="nav-link" th:href="@{customer/cart}">Cart</a></li>
+
+                </div>
+
+                <div sec:authorize="isAnonymous()">
+
+                    <li class="nav-item"><a class="nav-link" th:href="@{/login}">Existing Customer<br>Login Here</a></li>
+                </div>
+
+                <div sec:authorize="hasRole('ROLE_ADMIN')">
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Admin</a>
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" th:href="@{/console/getallproducts}">Show All Products</a></li>
+                            <li><a class="dropdown-item" th:href="@{/console/getallcustomers}">Show All Customers</a></li>
+                            <li><hr class="dropdown-divider" /></li>
+                            <li><a class="dropdown-item" th:href="@{/console/getcustomerbyemail}">Get Customer By Email</a></li>
+                            <li><a class="dropdown-item" th:href="@{/console/getproductbyid}">Get product By Id</a></li>
+                        </ul>
+                    </li>
+
+                </div>
+                <div >
+                    <li class="nav-item"><a class="nav-link" th:href="@{/contact}">Contact Us</a></li>
+                </div>
+                <div >
+                    <li class="nav-item"><a class="nav-link" th:href="@{/products}">Products</a></li>
+                </div>
+                <div sec:authorize="isAuthenticated()">
+                    <li class="nav-item"><a class="nav-link" th:href="@{/logout}">Logout</a></li>
+                </div>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<h1><a href="https://app.tango.us/app/workflow/5beff9d4-7480-4293-b786-5dac7e2bd7cf" target="_blank">Workflow with localhost</a></h1>
+<p><b>Date:</b> September 27, 2021</p>
+<p><b>Author:</b> Sanjaya Ghimire &lt;<a href="mailto:sanjaya428@gmail.com">sanjaya428@gmail.com</a>&gt;</p>
+<p><b>Source:</b> <a href="https://app.tango.us/app/workflow/5beff9d4-7480-4293-b786-5dac7e2bd7cf" target="_blank">Tango</a></p>
+<hr/>
+
+
+<p>
+<h3>1. <a href="http://localhost:8080/" target="_blank">Go to Home</a></h3>
+<img src="https://images.tango.us/public/screenshot_fb1a2af7-c67a-49a7-a093-5f8619bb572c?crop=focalpoint&fit=crop&w=undefined&ar=2412%3A1242" width="600" alt="Go to Home" />
+</p>
+
+<p>
+<h3>2. Click on Home</h3>
+<img src="https://images.tango.us/public/screenshot_492aa0b7-e01a-4a98-a865-2d1e24012eab?crop=focalpoint&fit=crop&fp-x=0.5650912106135987&fp-y=0.04508856682769726&fp-z=2.744144940344675&w=undefined&ar=2412%3A1242" width="600" alt="Click on Home" />
+</p>
+
+<p>
+<h3>3. Click on Ayurvedic Medicine Shop</h3>
+<img src="https://images.tango.us/public/screenshot_13a8caa7-024b-4688-aba5-fde450c5719d?crop=focalpoint&fit=crop&fp-x=0.1291459369817579&fp-y=0.0644122383252818&fp-z=2.0675467169552544&w=undefined&ar=2412%3A1242" width="600" alt="Click on Ayurvedic Medicine Shop" />
+</p>
+
+<p>
+<h3>4. Click on New Customer
+    Register Here</h3>
+<img src="https://images.tango.us/public/screenshot_8a8d2ee2-953a-429e-a7de-b543d280c2f3?crop=focalpoint&fit=crop&fp-x=0.6407545605306799&fp-y=0.0644122383252818&fp-z=2.4810227726727927&w=undefined&ar=2412%3A1242" width="600" alt="Click on New Customer
+Register Here" />
+</p>
+
+<p>
+<h3>5. Type "ghimire"</h3>
+<img src="https://images.tango.us/public/screenshot_3d0fcebc-f23d-416d-8b7e-8a63dfd92bac?crop=focalpoint&fit=crop&fp-x=0.538971807628524&fp-y=0.5233494363929146&fp-z=1.5952380952380953&w=undefined&ar=2412%3A1242" width="600" alt="Type ghimire" />
+</p>
+
+<p>
+<h3>6. Type "sanjaya428@gmail.com"</h3>
+<img src="https://images.tango.us/public/screenshot_a60f33f0-90a2-4072-9821-77461879ad82?crop=focalpoint&fit=crop&fp-x=0.538971807628524&fp-y=0.6618357487922706&fp-z=1.5952380952380953&w=undefined&ar=2412%3A1242" width="600" alt="Type sanjaya428@gmail.com" />
+</p>
+
+<p>
+<h3>7. Type password</h3>
+<img src="https://images.tango.us/public/screenshot_4304c04e-8a72-47ba-a220-7d7336b78ade?crop=focalpoint&fit=crop&fp-x=0.538971807628524&fp-y=0.8405797101449275&fp-z=1.5952380952380953&w=undefined&ar=2412%3A1242" width="600" alt="Type password" />
+</p>
+
+<p>
+<h3>8. Click on Submit</h3>
+<img src="https://images.tango.us/public/screenshot_6ad67053-9f0f-4acd-863b-dfecee7a614b?crop=focalpoint&fit=crop&fp-x=0.538971807628524&fp-y=0.927536231884058&fp-z=2.7484047402005474&w=undefined&ar=2412%3A1242" width="600" alt="Click on Submit" />
+</p>
+
+<p>
+<h3>9. Click on Existing Customer
+    Login Here</h3>
+<img src="https://images.tango.us/public/screenshot_a8f92bed-cd69-4ea5-973a-f82937345c42?crop=focalpoint&fit=crop&fp-x=0.7535240464344942&fp-y=0.0644122383252818&fp-z=2.4810227726727927&w=undefined&ar=2412%3A1242" width="600" alt="Click on Existing Customer
+Login Here" />
+</p>
+
+<p>
+<h3>10. Type "jbutt@gmail.com"</h3>
+<img src="https://images.tango.us/public/screenshot_727be4c9-4059-452b-8fd2-af34cfada233?crop=focalpoint&fit=crop&fp-x=0.5&fp-y=0.2109500805152979&fp-z=1.0387596899224807&w=undefined&ar=2412%3A1242" width="600" alt="Type jbutt@gmail.com" />
+</p>
+
+<p>
+<h3>11. Type password</h3>
+<img src="https://images.tango.us/public/screenshot_83754cf9-77d3-433c-8190-7ca911a43263?crop=focalpoint&fit=crop&fp-x=0.5&fp-y=0.3896940418679549&fp-z=1.0387596899224807&w=undefined&ar=2412%3A1242" width="600" alt="Type password" />
+</p>
+
+<p>
+<h3>12. Click on Submit</h3>
+<img src="https://images.tango.us/public/screenshot_ae84d134-cf8f-4366-92a9-01e138a7b625?crop=focalpoint&fit=crop&fp-x=0.06923714759535655&fp-y=0.47665056360708535&fp-z=2.7484047402005474&w=undefined&ar=2412%3A1242" width="600" alt="Click on Submit" />
+</p>
+
+<p>
+<h3>13. Click on Admin</h3>
+<img src="https://images.tango.us/public/screenshot_6c305a7e-6f43-49d5-a3ea-66f0d813650f?crop=focalpoint&fit=crop&fp-x=0.7477197346600332&fp-y=0.04508856682769726&fp-z=2.744144940344675&w=undefined&ar=2412%3A1242" width="600" alt="Click on Admin" />
+</p>
+
+<p>
+<h3>14. Click on Show All Products</h3>
+<img src="https://images.tango.us/public/screenshot_c461d8f6-76b9-49f6-8710-8b78779f6329?crop=focalpoint&fit=crop&fp-x=0.6958955223880597&fp-y=0.12077294685990338&fp-z=2.587982832618026&w=undefined&ar=2412%3A1242" width="600" alt="Click on Show All Products" />
+</p>
+
+<p>
+<h3>15. Click on Admin</h3>
+<img src="https://images.tango.us/public/screenshot_297126c0-f106-49a0-a7dc-f631dd4d306c?crop=focalpoint&fit=crop&fp-x=0.7415008291873963&fp-y=0.04508856682769726&fp-z=2.744144940344675&w=undefined&ar=2412%3A1242" width="600" alt="Click on Admin" />
+</p>
+
+<p>
+<h3>16. Click on Show All Customers</h3>
+<img src="https://images.tango.us/public/screenshot_32a71d12-7c2b-4978-9053-df4386561636?crop=focalpoint&fit=crop&fp-x=0.6896766169154229&fp-y=0.1723027375201288&fp-z=2.5469904963041183&w=undefined&ar=2412%3A1242" width="600" alt="Click on Show All Customers" />
+</p>
+
+<p>
+<h3>17. Click on sanjaya</h3>
+<img src="https://images.tango.us/public/screenshot_f0ddc910-8c6a-4d39-b4cf-8a638704dd9a?crop=focalpoint&fit=crop&fp-x=0.1726782752902156&fp-y=0.9363929146537843&fp-z=1.724581724581725&w=undefined&ar=2412%3A1242" width="600" alt="Click on sanjaya" />
+</p>
+
+<p>
+<h3>18. Click on Admin</h3>
+<img src="https://images.tango.us/public/screenshot_79e9c117-1f2c-408a-b741-01272f63f3d8?crop=focalpoint&fit=crop&fp-x=0.7415008291873963&fp-y=0.04508856682769726&fp-z=2.744144940344675&w=undefined&ar=2412%3A1242" width="600" alt="Click on Admin" />
+</p>
+
+<p>
+<h3>19. Click on Get Customer By Email</h3>
+<img src="https://images.tango.us/public/screenshot_b3e32ca5-03d0-4f39-98a3-4e3fd1069989?crop=focalpoint&fit=crop&fp-x=0.6896766169154229&fp-y=0.25120772946859904&fp-z=2.5469904963041183&w=undefined&ar=2412%3A1242" width="600" alt="Click on Get Customer By Email" />
+</p>
+
+<p>
+<h3>20. Click on Submit</h3>
+<img src="https://images.tango.us/public/screenshot_03220eb9-eca1-4bf3-9105-94bdaf1cfa11?crop=focalpoint&fit=crop&fp-x=0.5&fp-y=0.5104669887278583&fp-z=2.8125000000000004&w=undefined&ar=2412%3A1242" width="600" alt="Click on Submit" />
+</p>
+
+<p>
+<h3>21. Click on Admin</h3>
+<img src="https://images.tango.us/public/screenshot_8caa4e83-f2e0-4d21-85b1-52b932526e91?crop=focalpoint&fit=crop&fp-x=0.7477197346600332&fp-y=0.04508856682769726&fp-z=2.744144940344675&w=undefined&ar=2412%3A1242" width="600" alt="Click on Admin" />
+</p>
+
+<p>
+<h3>22. Click on Get product By Id</h3>
+<img src="https://images.tango.us/public/screenshot_017ed545-04c9-492e-8ab7-52b420ba87bf?crop=focalpoint&fit=crop&fp-x=0.6958955223880597&fp-y=0.3027375201288245&fp-z=2.587982832618026&w=undefined&ar=2412%3A1242" width="600" alt="Click on Get product By Id" />
+</p>
+
+<p>
+<h3>23. Click on Submit</h3>
+<img src="https://images.tango.us/public/screenshot_e8d10023-99d7-40de-8d75-07fd9ed5e628?crop=focalpoint&fit=crop&fp-x=0.5&fp-y=0.4975845410628019&fp-z=2.8125000000000004&w=undefined&ar=2412%3A1242" width="600" alt="Click on Submit" />
+</p>
+
+<p>
+<h3>24. Click on Admin</h3>
+<img src="https://images.tango.us/public/screenshot_54a5b454-d98d-4eb7-b1e8-41614694a94e?crop=focalpoint&fit=crop&fp-x=0.7477197346600332&fp-y=0.04508856682769726&fp-z=2.744144940344675&w=undefined&ar=2412%3A1242" width="600" alt="Click on Admin" />
+</p>
+
+<p>
+<h3>25. Click on Get product By Id</h3>
+<img src="https://images.tango.us/public/screenshot_f89f20df-bd41-45fe-80cc-07b465067254?crop=focalpoint&fit=crop&fp-x=0.6958955223880597&fp-y=0.3027375201288245&fp-z=2.587982832618026&w=undefined&ar=2412%3A1242" width="600" alt="Click on Get product By Id" />
+</p>
+
+<p>
+<h3>26. Click on Submit</h3>
+<img src="https://images.tango.us/public/screenshot_1bc800c9-034e-4e8e-92ed-bbb179b9e817?crop=focalpoint&fit=crop&fp-x=0.5&fp-y=0.4975845410628019&fp-z=2.8125000000000004&w=undefined&ar=2412%3A1242" width="600" alt="Click on Submit" />
+</p>
+
+<p>
+<h3>27. Click on Admin</h3>
+<img src="https://images.tango.us/public/screenshot_b23db2c5-e61e-48d1-a09f-034db3baa225?crop=focalpoint&fit=crop&fp-x=0.7477197346600332&fp-y=0.04508856682769726&fp-z=2.744144940344675&w=undefined&ar=2412%3A1242" width="600" alt="Click on Admin" />
+</p>
+
+<p>
+<h3>28. Click on Contact Us</h3>
+<img src="https://images.tango.us/public/screenshot_7bfd254f-77ee-4e2a-b296-e550562eda23?crop=focalpoint&fit=crop&fp-x=0.8094941956882256&fp-y=0.0644122383252818&fp-z=2.4810227726727927&w=undefined&ar=2412%3A1242" width="600" alt="Click on Contact Us" />
+</p>
+
+<p>
+<h3>29. Click on Products</h3>
+<img src="https://images.tango.us/public/screenshot_a22b35a3-6831-4b3c-8ec0-28559300d137?crop=focalpoint&fit=crop&fp-x=0.8675373134328358&fp-y=0.00966183574879227&fp-z=2.744144940344675&w=undefined&ar=2412%3A1242" width="600" alt="Click on Products" />
+</p>
+
+<p>
+<h3>30. Click on Logout</h3>
+<img src="https://images.tango.us/public/screenshot_9d134491-37ac-4553-809d-b13f094123cb?crop=focalpoint&fit=crop&fp-x=0.9288971807628524&fp-y=0.04508856682769726&fp-z=2.744144940344675&w=undefined&ar=2412%3A1242" width="600" alt="Click on Logout" />
+</p>
+
+<p>
+<h3>31. Click on Introduction to Ayurveda</h3>
+<img src="https://images.tango.us/public/screenshot_ef8c6d46-7476-4a8a-86b7-490b997ff23a?crop=focalpoint&fit=crop&fp-x=0.472636815920398&fp-y=0.534621578099839&fp-z=2.2300295857988166&w=undefined&ar=2412%3A1242" width="600" alt="Click on Introduction to Ayurveda" />
+</p>
+
+<p>
+<h3>32. Click on Ayurvedic Medicine Shop</h3>
+<img src="https://images.tango.us/public/screenshot_d90ea709-6efd-458d-b3b9-96b5eabc710c?crop=focalpoint&fit=crop&fp-x=0.1291459369817579&fp-y=0.0644122383252818&fp-z=2.0675467169552544&w=undefined&ar=2412%3A1242" width="600" alt="Click on Ayurvedic Medicine Shop" />
+</p>
+
+<hr/>
+<p>
+    <a href="https://app.tango.us/app/workflow/5beff9d4-7480-4293-b786-5dac7e2bd7cf" target="_blank"><em>This workflow was created with Tango.</em></a>
+</p>
+
+</body>
+</html>

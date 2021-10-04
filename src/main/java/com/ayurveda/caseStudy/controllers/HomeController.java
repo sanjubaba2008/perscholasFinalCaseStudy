@@ -70,6 +70,13 @@ public class HomeController {
         return "preview";
     }
 
+    //processing contact form
+    @PostMapping("/process-contact")
+    public String processContact(){
+
+        return "contact";
+    }
+
 
 
 

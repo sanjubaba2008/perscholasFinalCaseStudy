@@ -70,17 +70,19 @@
         </div>
     </div>
 </nav>
-<h1>Products Available for Purchase</h1>
+<h1 align="center">Products Available for Purchase</h1>
 <div th:if="${ not#lists.isEmpty(products)}">
-    <div class="row" th:each="product : ${products}">
-        <div class="col-md-3 col-sm-6">
-            <div class="product-grid6">
+    <div class="row" th:each="product : ${products}" style="display: inline-block; width: 300px;height: 50px; margin: 5px"  >
+      <div ><!--  class="col-md-3 col-sm-6"-->
+            <div class="product-grid6" >
 
-                <div class="product-content">
-                    <img th:src="@{${product.getPhotosImagePath()}}"/>
+                <div class="product-content" >
+                    <img th:src="@{${product.getPhotosImagePath()}}" height="100" width="100"/>
                     <h3 class="title" th:text="${product.name}"></h3>
-                    <div class="price" th:text="${product.price}">$</div>
-                    <div th:text="${product.description}"></div>
+                    <span>&#36;</span>
+
+                    <div class="price" th:text="${product.price}"></div>
+                    <div class = "description" th:text="${product.description}"></div>
                 </div>
                 <ul class="social" >
                     <li><a th:href="@{/cart}" data-tip="Add to Cart"><i class="fa fa-shopping-cart"></i></a></li>

@@ -81,14 +81,14 @@ public class CustomerProductAndAuthGroupConfig {
                     "Chyavanprash",
                     17.99,
                     19,
-                    "Chyawanprash (CP) is an Ayurvedic health supplement which is made up of a super-concentrated blend of nutrient-rich herbs and minerals."+"\n"+"It is meant to restore drained reserves of life force (ojas) "+"\n"+"and to preserve strength, stamina, and vitality, while stalling the course of aging.",
+                    "Chyawanprash (CP) is an Ayurvedic health supplement which is made up of a super-concentrated blend of nutrient-rich herbs and minerals."+"\n"+"It is meant to restore drained reserves of life force (ojas) ",
                     "chyawanprash.jpg"
             );
             Product productFour = new Product(
                     "Avipattikar",
                     12.99,
                     10,
-                    "Avipattikar is an herbal remedy used in Ayurveda, the traditional medicine of India."+"\n"+" Available in dietary supplement form, it contains a number of different ayurvedic herbs and is generally used to treat digestive problems."+"\n"+" Avipattikar contains the following herbs: Amla (Emblica officinalis)",
+                    "Avipattikar is an herbal remedy used in Ayurveda, the traditional medicine of India."+"\n"+" Available in dietary supplement form, it contains a number of different ayurvedic herbs and is generally used to treat digestive problems.",
                     "avipattikar.jpg"
             );
             Product productFive = new Product(

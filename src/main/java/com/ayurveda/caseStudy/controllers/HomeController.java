@@ -1,6 +1,7 @@
 package com.ayurveda.caseStudy.controllers;
 
 import com.ayurveda.caseStudy.models.Customer;
+import com.ayurveda.caseStudy.models.Quote;
 import com.ayurveda.caseStudy.services.CustomerService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +11,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.client.RestTemplate;
 
 import javax.validation.Valid;
 
@@ -28,8 +30,13 @@ public class HomeController {
     //I used GetMapping to get resources from the system
     @GetMapping({"/","index"})//when a client request a home page this method will be triggered
     //and returns index.html file. client can either request "/" or "index"
-    public String showIndex(){
+    public String showIndex(RestTemplate restTemplate, Model model){
         log.warn("requested index.html");
+        Quote quote = restTemplate.getForObject(
+                "https://quoters.apps.pcfone.io/api/random", Quote.class);
+        log.warn(quote.toString());
+        model.addAttribute("quote", quote.getValue().getQuote());
+
         return "index";
     }
 

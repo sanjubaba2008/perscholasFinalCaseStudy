@@ -30,9 +30,10 @@ public class AdminController {
     }
 
     @GetMapping("/getallcustomers")
-    public String getCustomers(Model model) {
+    public String getCustomers(Model model) throws InterruptedException {
         List<Customer> customers= customerService.getAllCustomers();
         model.addAttribute("customers", customers);
+        
         return "allcustomers";
     }
 
